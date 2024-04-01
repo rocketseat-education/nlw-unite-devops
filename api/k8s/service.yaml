@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: passin-service
+  labels:
+    app: passin
+
+spec:
+  selector:
+    app: passin
+  type: ClusterIP
+  ports:
+  - name: passin-service
+    port: 80
+    targetPort: 3333
+    protocol: TCP
