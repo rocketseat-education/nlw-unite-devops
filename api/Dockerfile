@@ -27,9 +27,9 @@ WORKDIR /usr/src/app
 RUN npm i -g pnpm prisma
 
 COPY --from=build /usr/src/app/dist ./dist
-COPY --from=nuild /usr/src/app/node_modules ./node_modules
-COPY --from=nuild /usr/src/app/package.json ./package.json
-COPY --from=nuild /usr/src/app/prisma ./prisma
+COPY --from=build /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/package.json ./package.json
+COPY --from=build /usr/src/app/prisma ./prisma
 
 RUN pnpm prisma generate
 
